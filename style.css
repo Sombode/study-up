@@ -1,0 +1,131 @@
+:root {
+  --bg: whitesmoke;
+  --main: black;
+  /* Dark theme
+  --bg: #0f0f0f;
+  --main: #dedede;
+  */
+  /* Sepia theme
+  --bg: #f9ebdc;
+  --main: #5f5954;
+  */
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20vh;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 24px;
+  color: var(--main);
+}
+
+h1 {
+  font: inherit;
+  font-size: 5em;
+  animation: wave 20s ease-in-out infinite;
+}
+
+button {
+  padding: 0.1em 0.7em;
+  font: inherit;
+  border: none;
+  border-radius: 0.2em;
+  background-color: var(--main);
+  color: var(--bg);
+  filter: opacity(1);
+  transition: filter 0.25s ease-in-out;
+}
+
+button:hover {
+  border: solid 1px var(--main);
+  background-color: var(--bg);
+  color: var(--main);
+}
+
+.blur button {
+  filter: opacity(0);
+  transition: filter 2s ease-in-out;
+}
+
+#resetButton {
+  display: none;
+}
+
+#themeButton {
+  position: fixed;
+  top: 0.25em;
+  left: 0.25em;
+  text-align: center;
+  padding: 0.3em 0.1em 0.4em 0.1em;
+  line-height: 0.75em;
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  left: 100vw;
+  width: 350px;
+  height: 100vh;
+  background-color: var(--bg);
+  border-left: solid 2px var(--main);
+  transition: transform 0.25s ease-in-out;
+}
+
+#toggleSidebar {
+  position: absolute;
+  top: 0.25em;
+  padding: 0.3em 0.1em 0.4em 0.1em;
+  line-height: 0.75em;
+  transform: translateX(-1.9em);
+}
+
+.song {
+  width: 350px;
+  height: 210px;
+}
+
+#customSong {
+  background-color: var(--main);
+  color: var(--bg);
+  margin: 0.5em;
+  padding: 0.1em 0.2em;
+  border-radius: 0.25em;
+  font: inherit;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+#customSong:before {
+  pointer-events: none;
+}
+
+#customSong:empty:not(:focus):before {
+  content: "Enter a Youtube URL";
+  filter: opacity(0.5);
+}
+
+
+@keyframes wave {
+  0% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 10px;
+  }
+  100% {
+    translate: 0 0;
+  }
+  
+}
